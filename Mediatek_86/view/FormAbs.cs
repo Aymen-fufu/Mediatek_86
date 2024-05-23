@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Mediatek_86.view
 {
-    public partial class Form4 : Form
+    public partial class FormAbs : Form
     {
-        public Form4()
+        public FormAbs()
         {
             InitializeComponent();
         }

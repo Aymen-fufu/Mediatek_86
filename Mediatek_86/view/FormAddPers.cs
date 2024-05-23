@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace Mediatek_86.view
 {
-    public partial class Form2 : Form
+    public partial class FormAddPers : Form
     {
-        public Form2()
+        public FormAddPers()
         {
             InitializeComponent();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_tel_Click(object sender, EventArgs e)
         {
 
         }

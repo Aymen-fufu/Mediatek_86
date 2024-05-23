@@ -1,6 +1,6 @@
 ﻿namespace Mediatek_86.view
 {
-    partial class Form4
+    partial class FormAbs
     {
         /// <summary>
         /// Required designer variable.

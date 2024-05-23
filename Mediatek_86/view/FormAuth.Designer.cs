@@ -1,6 +1,6 @@
 ﻿namespace Mediatek_86
 {
-    partial class Form1
+    partial class FormAuth
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAuth));
             this.panel = new System.Windows.Forms.Panel();
             this.label_title = new System.Windows.Forms.Label();
             this.pictureBox_employe = new System.Windows.Forms.PictureBox();

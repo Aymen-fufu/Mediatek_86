@@ -1,6 +1,6 @@
 ﻿namespace Mediatek_86.view
 {
-    partial class Form2
+    partial class FormPersList
     {
         /// <summary>
         /// Required designer variable.
