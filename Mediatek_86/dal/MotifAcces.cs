@@ -18,7 +18,7 @@ namespace Mediatek_86.dal
         }
 
         public List<Motif> GetLesMotifs() 
-        { 
+        {
             List<Motif> lesMotifs = new List<Motif>();
             
             if (access.Manager != null) 
