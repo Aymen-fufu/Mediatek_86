@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_ajouter = new System.Windows.Forms.Button();
-            this.btn_modifier = new System.Windows.Forms.Button();
             this.btn_supprimer = new System.Windows.Forms.Button();
-            this.btn_annuler = new System.Windows.Forms.Button();
-            this.btn_fermer = new System.Windows.Forms.Button();
-            this.btn_enregistrer = new System.Windows.Forms.Button();
-            this.label_debut = new System.Windows.Forms.Label();
-            this.label_fin = new System.Windows.Forms.Label();
+            this.btn_modifier = new System.Windows.Forms.Button();
+            this.btn_ajouter = new System.Windows.Forms.Button();
+            this.dgv_Absences = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox_motif = new System.Windows.Forms.ComboBox();
             this.label_motif = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label_fin = new System.Windows.Forms.Label();
+            this.label_debut = new System.Windows.Forms.Label();
+            this.btn_enregistrer = new System.Windows.Forms.Button();
+            this.btn_fermer = new System.Windows.Forms.Button();
+            this.btn_annuler = new System.Windows.Forms.Button();
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            this.dateTimePicker_debut = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_fin = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Absences)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,18 +55,60 @@
             this.panel1.Controls.Add(this.btn_supprimer);
             this.panel1.Controls.Add(this.btn_modifier);
             this.panel1.Controls.Add(this.btn_ajouter);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgv_Absences);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 320);
             this.panel1.TabIndex = 0;
             // 
+            // btn_supprimer
+            // 
+            this.btn_supprimer.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supprimer.Location = new System.Drawing.Point(669, 258);
+            this.btn_supprimer.Name = "btn_supprimer";
+            this.btn_supprimer.Size = new System.Drawing.Size(95, 41);
+            this.btn_supprimer.TabIndex = 3;
+            this.btn_supprimer.Text = "supprimer";
+            this.btn_supprimer.UseVisualStyleBackColor = true;
+            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            // 
+            // btn_modifier
+            // 
+            this.btn_modifier.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modifier.Location = new System.Drawing.Point(544, 258);
+            this.btn_modifier.Name = "btn_modifier";
+            this.btn_modifier.Size = new System.Drawing.Size(102, 41);
+            this.btn_modifier.TabIndex = 2;
+            this.btn_modifier.Text = "modifier";
+            this.btn_modifier.UseVisualStyleBackColor = true;
+            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // btn_ajouter
+            // 
+            this.btn_ajouter.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajouter.Location = new System.Drawing.Point(415, 258);
+            this.btn_ajouter.Name = "btn_ajouter";
+            this.btn_ajouter.Size = new System.Drawing.Size(102, 41);
+            this.btn_ajouter.TabIndex = 1;
+            this.btn_ajouter.Text = "ajouter";
+            this.btn_ajouter.UseVisualStyleBackColor = true;
+            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
+            // 
+            // dgv_Absences
+            // 
+            this.dgv_Absences.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_Absences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Absences.Location = new System.Drawing.Point(3, 3);
+            this.dgv_Absences.Name = "dgv_Absences";
+            this.dgv_Absences.Size = new System.Drawing.Size(770, 225);
+            this.dgv_Absences.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.dateTimePicker_fin);
+            this.panel2.Controls.Add(this.dateTimePicker_debut);
+            this.panel2.Controls.Add(this.comboBox_motif);
             this.panel2.Controls.Add(this.label_motif);
             this.panel2.Controls.Add(this.label_fin);
             this.panel2.Controls.Add(this.label_debut);
@@ -77,64 +120,46 @@
             this.panel2.Size = new System.Drawing.Size(776, 100);
             this.panel2.TabIndex = 1;
             // 
-            // dataGridView1
+            // comboBox_motif
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(770, 225);
-            this.dataGridView1.TabIndex = 0;
+            this.comboBox_motif.FormattingEnabled = true;
+            this.comboBox_motif.Location = new System.Drawing.Point(52, 70);
+            this.comboBox_motif.Name = "comboBox_motif";
+            this.comboBox_motif.Size = new System.Drawing.Size(200, 21);
+            this.comboBox_motif.TabIndex = 12;
             // 
-            // btn_ajouter
+            // label_motif
             // 
-            this.btn_ajouter.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ajouter.Location = new System.Drawing.Point(415, 258);
-            this.btn_ajouter.Name = "btn_ajouter";
-            this.btn_ajouter.Size = new System.Drawing.Size(102, 41);
-            this.btn_ajouter.TabIndex = 1;
-            this.btn_ajouter.Text = "ajouter";
-            this.btn_ajouter.UseVisualStyleBackColor = true;
+            this.label_motif.AutoSize = true;
+            this.label_motif.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_motif.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_motif.Location = new System.Drawing.Point(8, 70);
+            this.label_motif.Name = "label_motif";
+            this.label_motif.Size = new System.Drawing.Size(35, 15);
+            this.label_motif.TabIndex = 9;
+            this.label_motif.Text = "motif";
             // 
-            // btn_modifier
+            // label_fin
             // 
-            this.btn_modifier.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modifier.Location = new System.Drawing.Point(544, 258);
-            this.btn_modifier.Name = "btn_modifier";
-            this.btn_modifier.Size = new System.Drawing.Size(102, 41);
-            this.btn_modifier.TabIndex = 2;
-            this.btn_modifier.Text = "modifier";
-            this.btn_modifier.UseVisualStyleBackColor = true;
+            this.label_fin.AutoSize = true;
+            this.label_fin.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_fin.Location = new System.Drawing.Point(8, 43);
+            this.label_fin.Name = "label_fin";
+            this.label_fin.Size = new System.Drawing.Size(21, 15);
+            this.label_fin.TabIndex = 8;
+            this.label_fin.Text = "fin";
             // 
-            // btn_supprimer
+            // label_debut
             // 
-            this.btn_supprimer.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_supprimer.Location = new System.Drawing.Point(669, 258);
-            this.btn_supprimer.Name = "btn_supprimer";
-            this.btn_supprimer.Size = new System.Drawing.Size(95, 41);
-            this.btn_supprimer.TabIndex = 3;
-            this.btn_supprimer.Text = "supprimer";
-            this.btn_supprimer.UseVisualStyleBackColor = true;
-            // 
-            // btn_annuler
-            // 
-            this.btn_annuler.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_annuler.Location = new System.Drawing.Point(272, 55);
-            this.btn_annuler.Name = "btn_annuler";
-            this.btn_annuler.Size = new System.Drawing.Size(86, 32);
-            this.btn_annuler.TabIndex = 1;
-            this.btn_annuler.Text = "annuler";
-            this.btn_annuler.UseVisualStyleBackColor = true;
-            // 
-            // btn_fermer
-            // 
-            this.btn_fermer.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_fermer.Location = new System.Drawing.Point(658, 27);
-            this.btn_fermer.Name = "btn_fermer";
-            this.btn_fermer.Size = new System.Drawing.Size(106, 46);
-            this.btn_fermer.TabIndex = 2;
-            this.btn_fermer.Text = "fermer";
-            this.btn_fermer.UseVisualStyleBackColor = true;
+            this.label_debut.AutoSize = true;
+            this.label_debut.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_debut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_debut.Location = new System.Drawing.Point(8, 15);
+            this.label_debut.Name = "label_debut";
+            this.label_debut.Size = new System.Drawing.Size(38, 15);
+            this.label_debut.TabIndex = 7;
+            this.label_debut.Text = "debut";
             // 
             // btn_enregistrer
             // 
@@ -145,77 +170,64 @@
             this.btn_enregistrer.TabIndex = 6;
             this.btn_enregistrer.Text = "enregistrer";
             this.btn_enregistrer.UseVisualStyleBackColor = true;
+            this.btn_enregistrer.Click += new System.EventHandler(this.btn_enregistrer_Click);
             // 
-            // label_debut
+            // btn_fermer
             // 
-            this.label_debut.AutoSize = true;
-            this.label_debut.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_debut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_debut.Location = new System.Drawing.Point(25, 15);
-            this.label_debut.Name = "label_debut";
-            this.label_debut.Size = new System.Drawing.Size(38, 15);
-            this.label_debut.TabIndex = 7;
-            this.label_debut.Text = "debut";
+            this.btn_fermer.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_fermer.Location = new System.Drawing.Point(658, 27);
+            this.btn_fermer.Name = "btn_fermer";
+            this.btn_fermer.Size = new System.Drawing.Size(106, 46);
+            this.btn_fermer.TabIndex = 2;
+            this.btn_fermer.Text = "fermer";
+            this.btn_fermer.UseVisualStyleBackColor = true;
+            this.btn_fermer.Click += new System.EventHandler(this.btn_fermer_Click);
             // 
-            // label_fin
+            // btn_annuler
             // 
-            this.label_fin.AutoSize = true;
-            this.label_fin.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_fin.Location = new System.Drawing.Point(25, 41);
-            this.label_fin.Name = "label_fin";
-            this.label_fin.Size = new System.Drawing.Size(21, 15);
-            this.label_fin.TabIndex = 8;
-            this.label_fin.Text = "fin";
+            this.btn_annuler.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_annuler.Location = new System.Drawing.Point(272, 55);
+            this.btn_annuler.Name = "btn_annuler";
+            this.btn_annuler.Size = new System.Drawing.Size(86, 32);
+            this.btn_annuler.TabIndex = 1;
+            this.btn_annuler.Text = "annuler";
+            this.btn_annuler.UseVisualStyleBackColor = true;
+            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
-            // label_motif
+            // mySqlDataAdapter1
             // 
-            this.label_motif.AutoSize = true;
-            this.label_motif.Font = new System.Drawing.Font("Noto Sans Lisu", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_motif.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_motif.Location = new System.Drawing.Point(25, 72);
-            this.label_motif.Name = "label_motif";
-            this.label_motif.Size = new System.Drawing.Size(35, 15);
-            this.label_motif.TabIndex = 9;
-            this.label_motif.Text = "motif";
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
             // 
-            // comboBox1
+            // dateTimePicker_debut
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(96, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.dateTimePicker_debut.Location = new System.Drawing.Point(52, 15);
+            this.dateTimePicker_debut.Name = "dateTimePicker_debut";
+            this.dateTimePicker_debut.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_debut.TabIndex = 13;
             // 
-            // comboBox2
+            // dateTimePicker_fin
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(96, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 11;
+            this.dateTimePicker_fin.Location = new System.Drawing.Point(52, 43);
+            this.dateTimePicker_fin.Name = "dateTimePicker_fin";
+            this.dateTimePicker_fin.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fin.TabIndex = 14;
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(96, 70);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 12;
-            // 
-            // Form4
+            // FormAbs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Form4";
+            this.Name = "FormAbs";
             this.Text = "Form4";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Absences)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,15 +239,16 @@
         private System.Windows.Forms.Button btn_supprimer;
         private System.Windows.Forms.Button btn_modifier;
         private System.Windows.Forms.Button btn_ajouter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Absences;
         private System.Windows.Forms.Button btn_fermer;
         private System.Windows.Forms.Button btn_annuler;
         private System.Windows.Forms.Button btn_enregistrer;
         private System.Windows.Forms.Label label_debut;
         private System.Windows.Forms.Label label_motif;
         private System.Windows.Forms.Label label_fin;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_motif;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fin;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_debut;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
     }
 }

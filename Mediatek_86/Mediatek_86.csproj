@@ -100,10 +100,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bddmanager\bddManagers.cs" />
+    <Compile Include="controller\AbsController.cs" />
+    <Compile Include="controller\AddPersController.cs" />
     <Compile Include="controller\AuthController.cs" />
+    <Compile Include="controller\PersListcontroller.cs" />
+    <Compile Include="dal\AbsenceAccess.cs" />
     <Compile Include="dal\Access.cs" />
+    <Compile Include="dal\MotifAcces.cs" />
     <Compile Include="dal\PersonnelAcces.cs" />
     <Compile Include="dal\ResponsableAcces.cs" />
+    <Compile Include="dal\ServiceAccess.cs" />
     <Compile Include="model\Absence.cs" />
     <Compile Include="model\Motif.cs" />
     <Compile Include="model\Personnel.cs" />

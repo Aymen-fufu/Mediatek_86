@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Mediatek_86.dal
 {   /// <summary>
@@ -14,7 +15,7 @@ namespace Mediatek_86.dal
     {
         ///chaine de connecion a la bdd 
         /// MODIFIER LES PARAMETRES
-        private static readonly string connectionString = "server=localhost;user id=user_mediatek86;password=user_mediatek86_pwd;persistsecurityinfo=True;database=mediatek86;SslMode=none";
+        private static readonly string connectionString = "server=localhost;user id=user_mediatek86;password=user_mediatek86_pwd;persistsecurityinfo=True;database=mediatek86_db;SslMode=none";
 
         /// instance unique de la classe
         private static Access instance = null;

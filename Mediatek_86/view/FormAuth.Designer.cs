@@ -124,6 +124,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(345, 20);
             this.textBox_password.TabIndex = 5;
+            this.textBox_password.TextChanged += new System.EventHandler(this.textBox_password_TextChanged);
             // 
             // login_btn
             // 
@@ -138,8 +139,9 @@
             this.login_btn.TabIndex = 6;
             this.login_btn.Text = "LOGIN";
             this.login_btn.UseVisualStyleBackColor = false;
+            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
             // 
-            // Form1
+            // FormAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -151,7 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_connection);
             this.Controls.Add(this.panel);
-            this.Name = "Form1";
+            this.Name = "FormAuth";
             this.Text = "Form1";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
