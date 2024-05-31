@@ -12,15 +12,32 @@ using Mediatek_86.model;
 
 namespace Mediatek_86.view
 {
+    /// <summary>
+    /// Fentre d'affichage des personnels et de leurs infos
+    /// </summary>
     public partial class FormPersList : Form
     {
-
-        private BindingSource bdgPersonnels = new BindingSource();
-
+        /// <summary>
+        /// Objet pour gérer la liste des personnels
+        /// </summary>
+        private readonly BindingSource bdgPersonnels = new BindingSource();
+        /// <summary>
+        /// Controleur de la fenêtre
+        /// </summary>
         private PersListcontroller controller;
 
-     
+        /// <summary>
+        /// Demande de modification de personnel
+        /// </summary>
+        public Button Btn_modifier
+        {
+            get { return btn_modifier; }
+        }
 
+        /// <summary>
+        /// Construction des composants graphiques et appel des autres initialisations
+        /// </summary>
+        /// <param name="formAuth">Instance de la fenêtre d'authentification</param>
         public FormPersList(FormAuth formAuth)
         {
             InitializeComponent();
@@ -30,7 +47,9 @@ namespace Mediatek_86.view
             }
             Init();
         }
-
+        /// <summary>
+        /// Initialisations : création du controleur et remplissage de la liste
+        /// </summary>
         private void Init() 
         {
             controller = new PersListcontroller();
@@ -38,7 +57,9 @@ namespace Mediatek_86.view
             RemplirListePers();
 
         }
-
+        /// <summary>
+        /// Affiche les personnels
+        /// </summary>
         public void RemplirListePers()
         {
             List<Personnel> lesPers = controller.GetLesPersonnels();
@@ -48,23 +69,31 @@ namespace Mediatek_86.view
             dgvPers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void button_ajouter_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande de création d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_ajouter_Click(object sender, EventArgs e)
         {
             FormAddPers frm = new FormAddPers(null, sender, this);
             frm.ShowDialog();
         }
-
-        private void btn_modifier_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande de modification d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_modifier_Click(object sender, EventArgs e)
         {
             if (dgvPers.SelectedRows.Count > 0)
             {
@@ -73,8 +102,12 @@ namespace Mediatek_86.view
                 frm.ShowDialog();
             }
         }
-
-        private void btn_supprimer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande de suppresion d'un personnel (et préalablement, de toutes ces absences)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_supprimer_Click(object sender, EventArgs e)
         {
             if(dgvPers.SelectedRows.Count > 0)
             {
@@ -91,8 +124,12 @@ namespace Mediatek_86.view
                 MessageBox.Show("Une ligne doit être sélectionnée.");
             }
         }
-
-        private void btn_gestionAbsences_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande d'affichage des absences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_gestionAbsences_Click(object sender, EventArgs e)
         {
             if(dgvPers.SelectedRows.Count > 0) 
             {
@@ -102,7 +139,7 @@ namespace Mediatek_86.view
             }
         }
 
-        private void dgvPers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvPers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

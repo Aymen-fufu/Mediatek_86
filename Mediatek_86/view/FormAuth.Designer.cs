@@ -75,7 +75,7 @@
             this.pictureBox_employe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_employe.TabIndex = 0;
             this.pictureBox_employe.TabStop = false;
-            this.pictureBox_employe.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_employe.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // label_connection
             // 
@@ -86,7 +86,7 @@
             this.label_connection.Size = new System.Drawing.Size(151, 33);
             this.label_connection.TabIndex = 1;
             this.label_connection.Text = "Connection";
-            this.label_connection.Click += new System.EventHandler(this.label1_Click);
+            this.label_connection.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label2
             // 
@@ -97,7 +97,7 @@
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Username:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // label3
             // 
@@ -108,7 +108,7 @@
             this.label3.Size = new System.Drawing.Size(72, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password: ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // textBox_username
             // 
@@ -116,7 +116,7 @@
             this.textBox_username.Name = "textBox_username";
             this.textBox_username.Size = new System.Drawing.Size(345, 20);
             this.textBox_username.TabIndex = 4;
-            this.textBox_username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox_username.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // textBox_password
             // 
@@ -124,7 +124,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(345, 20);
             this.textBox_password.TabIndex = 5;
-            this.textBox_password.TextChanged += new System.EventHandler(this.textBox_password_TextChanged);
+            this.textBox_password.TextChanged += new System.EventHandler(this.TextBox_password_TextChanged);
             // 
             // login_btn
             // 
@@ -139,7 +139,7 @@
             this.login_btn.TabIndex = 6;
             this.login_btn.Text = "LOGIN";
             this.login_btn.UseVisualStyleBackColor = false;
-            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
+            this.login_btn.Click += new System.EventHandler(this.Login_btn_Click);
             // 
             // FormAuth
             // 

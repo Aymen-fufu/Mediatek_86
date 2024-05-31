@@ -11,6 +11,9 @@ namespace Mediatek_86.model
     public class Responsable
     {
 
+        /// <summary>
+        /// Valorise les propriétés
+        /// </summary>
         /// <param name="identifiant"></param>
         /// <param name="mdp"></param>
         public Responsable(string identifiant, string mdp) 
@@ -18,6 +21,7 @@ namespace Mediatek_86.model
             this.Identifiant = identifiant;
             this.Mdp = mdp;
         }
+
         public string Identifiant { get; }
         public string Mdp { get; }
     }

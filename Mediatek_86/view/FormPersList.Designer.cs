@@ -61,7 +61,7 @@
             this.label_liste_personnels.Size = new System.Drawing.Size(136, 20);
             this.label_liste_personnels.TabIndex = 1;
             this.label_liste_personnels.Text = "Liste du personnel";
-            this.label_liste_personnels.Click += new System.EventHandler(this.label1_Click);
+            this.label_liste_personnels.Click += new System.EventHandler(this.Label1_Click);
             // 
             // dgvPers
             // 
@@ -71,7 +71,7 @@
             this.dgvPers.Name = "dgvPers";
             this.dgvPers.Size = new System.Drawing.Size(1139, 316);
             this.dgvPers.TabIndex = 0;
-            this.dgvPers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPers_CellContentClick);
+            this.dgvPers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPers_CellContentClick);
             // 
             // panel2
             // 
@@ -85,7 +85,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1145, 122);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // btn_gestionAbsences
             // 
@@ -96,7 +96,7 @@
             this.btn_gestionAbsences.TabIndex = 6;
             this.btn_gestionAbsences.Text = "gestion absences";
             this.btn_gestionAbsences.UseVisualStyleBackColor = true;
-            this.btn_gestionAbsences.Click += new System.EventHandler(this.btn_gestionAbsences_Click);
+            this.btn_gestionAbsences.Click += new System.EventHandler(this.Btn_gestionAbsences_Click);
             // 
             // btn_supprimer
             // 
@@ -107,7 +107,7 @@
             this.btn_supprimer.TabIndex = 5;
             this.btn_supprimer.Text = "supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = true;
-            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            this.btn_supprimer.Click += new System.EventHandler(this.Btn_supprimer_Click);
             // 
             // btn_modifier
             // 
@@ -118,7 +118,7 @@
             this.btn_modifier.TabIndex = 4;
             this.btn_modifier.Text = "modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            this.btn_modifier.Click += new System.EventHandler(this.Btn_modifier_Click);
             // 
             // button_ajouter
             // 
@@ -129,7 +129,7 @@
             this.button_ajouter.TabIndex = 0;
             this.button_ajouter.Text = "ajouter";
             this.button_ajouter.UseVisualStyleBackColor = true;
-            this.button_ajouter.Click += new System.EventHandler(this.button_ajouter_Click);
+            this.button_ajouter.Click += new System.EventHandler(this.Button_ajouter_Click);
             // 
             // FormPersList
             // 
@@ -157,6 +157,6 @@
         private System.Windows.Forms.Label label_liste_personnels;
         private System.Windows.Forms.Button btn_gestionAbsences;
         private System.Windows.Forms.Button btn_supprimer;
-        public System.Windows.Forms.Button btn_modifier;
+        private System.Windows.Forms.Button btn_modifier;
     }
 }

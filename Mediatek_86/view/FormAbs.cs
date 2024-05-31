@@ -13,31 +13,53 @@ using MySql.Data.MySqlClient;
 
 namespace Mediatek_86.view
 {
+    /// <summary>
+    /// Fenêtre de gestion des absences du personnel selectionné
+    /// </summary>
     public partial class FormAbs : Form
     {
-
+        /// <summary>
+        /// Date de début originelle de l'absence à modifier
+        /// </summary>
         private DateTime dateDebut;
-
+        /// <summary>
+        /// Personnel concerné par les absences
+        /// </summary>
         private Personnel personnel;
-
+        /// <summary>
+        /// Booléen pour savoir si une modification est demandée
+        /// </summary>
         private Boolean enCoursModif = false;
-
+        /// <summary>
+        /// Booléen poue savoir si un ajout est demandé
+        /// </summary>
         private Boolean enCoursAjoutAbsence = false;
-
-        private BindingSource bdgAbsences = new BindingSource();
-
-        private BindingSource bdgMotifs = new BindingSource();
-
+        /// <summary>
+        /// Objet pour gérer la liste des absences
+        /// </summary>
+        private readonly BindingSource bdgAbsences = new BindingSource();
+        /// <summary>
+        /// Objet pour gérer la liste des motifs
+        /// </summary>
+        private readonly BindingSource bdgMotifs = new BindingSource();
+        /// <summary>
+        /// Controleur de la fenêtre
+        /// </summary>
         private AbsController controller;
 
 
 
-
+        /// <summary>
+        /// Construction des composants graphiques et appel des autres initialisations
+        /// </summary>
         public FormAbs(Personnel personnel)
         {
             InitializeComponent();
             Init(personnel);
         }
+        /// <summary>
+        /// Initialisations : création du controleur et remplissage de la liste des absences
+        /// </summary>
         private void Init(Personnel personnel)
         {
             controller = new AbsController();
@@ -47,7 +69,10 @@ namespace Mediatek_86.view
             RemplirListeMotifs();
             InitialisationActionAbsence();
         }
-
+        /// <summary>
+        /// Affiche les absences
+        /// </summary>
+        /// <param name="personnel"></param>
         private void RemplirListeAbsences(Personnel personnel) 
         { 
             List<Absence> lesAbsences = controller.GetLesAbsences(personnel);
@@ -56,33 +81,49 @@ namespace Mediatek_86.view
             dgv_Absences.Columns["idpersonnel"].Visible = false;
             dgv_Absences.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+        /// <summary>
+        /// Affiche les motifs
+        /// </summary>
         private void RemplirListeMotifs() 
         {
             List<Motif> lesMotifs = controller.GetLesMotifs();
             bdgMotifs.DataSource = lesMotifs;
             comboBox_motif.DataSource = bdgMotifs;
         }
-
+        /// <summary>
+        /// Initialise et rend inaccessible la zone d'ajout/modification 
+        /// </summary>
         private void InitialisationActionAbsence()
         {
             dateTimePicker_debut.Value = DateTime.Today;
             dateTimePicker_fin.Value = DateTime.Today;
             comboBox_motif.SelectedItem = comboBox_motif.Items[0];
         }
-
+        /// <summary>
+        /// Modification d'affichage si on est en cours de modif 
+        /// </summary>
+        /// <param name="modif"></param>
         private void EncoursModifAbsence(Boolean modif)
         {
             enCoursModif = modif;
         }
 
 
-
-        private void btn_ajouter_Click(object sender, EventArgs e)
+        /// <summary>
+        ///  Demande d'ajout d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_ajouter_Click(object sender, EventArgs e)
         {
             EnCoursAjoutAbsence(true);
         }
-
-        private void btn_enregistrer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande d'enregistrement de l'ajout d'un absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_enregistrer_Click(object sender, EventArgs e)
         {
             if (comboBox_motif.SelectedIndex != -1) 
             {
@@ -127,16 +168,25 @@ namespace Mediatek_86.view
                 MessageBox.Show("Un motif doit être sélectionné.");
             }
         }
-
-        private void btn_annuler_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Annuler la demande d'ajout d'une absence
+        /// Réinitialise les zones de saisie de l'absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_annuler_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 InitialisationActionAbsence();
             }
         }
-
-        private void btn_supprimer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande de suppression d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_supprimer_Click(object sender, EventArgs e)
         {
             if (dgv_Absences.Rows.Count > 0)
             {
@@ -153,8 +203,12 @@ namespace Mediatek_86.view
             }
 
         }
-
-        private void btn_modifier_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande de modification d'un développeur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_modifier_Click(object sender, EventArgs e)
         {
             if (dgv_Absences.SelectedRows.Count > 0) 
             {
@@ -170,12 +224,18 @@ namespace Mediatek_86.view
                 MessageBox.Show("Une ligne doit être selectionnée.");
             }
         }
-
+        /// <summary>
+        /// Modification d'affichage si on est en cours d'ajout
+        /// </summary>
+        /// <param name="modif"></param>
         private void EnCoursAjoutAbsence(Boolean modif) 
         {
             enCoursAjoutAbsence = modif;
         }
-
+        /// <summary>
+        /// Controle d'absences simultanées
+        /// </summary>
+        /// <returns></returns>
         private Boolean ControleAbsencesSimultanees() 
         { 
             Boolean test = false;
@@ -202,8 +262,12 @@ namespace Mediatek_86.view
             }
             return false;
         }
-
-        private void btn_fermer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Fermeture de la fenêtre de gestion des absences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_fermer_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -7,15 +7,26 @@ using Mediatek_86.model;
 
 namespace Mediatek_86.dal
 {
+    /// <summary>
+    /// Classe permettant de gérer les demandes concernant les services
+    /// </summary>
     public class ServiceAccess
     {
-        private Access access = null;
-
+        /// <summary>
+        /// Instance unique de l'accès aux données
+        /// </summary>
+        private readonly Access access = null;
+        /// <summary>
+        /// Constructeur pour créer l'accès aux données
+        /// </summary>
         public ServiceAccess()
         {
             access = Access.GetInstance();
         }
-
+        /// <summary>
+        /// Récupère et retourne les services
+        /// </summary>
+        /// <returns>Liste des services</returns>
         public List<Service> GetLesServices() 
         { 
             List<Service> lesServices = new List<Service>();

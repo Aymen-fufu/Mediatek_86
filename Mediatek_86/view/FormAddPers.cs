@@ -14,24 +14,40 @@ using Mediatek_86.model;
 
 namespace Mediatek_86.view
 {
+    /// <summary>
+    /// Fenêtre d'ajout ou de modification de personnel
+    /// </summary>
     public partial class FormAddPers : Form
     {
-
+        /// <summary>
+        /// Booléen pour savoir si une modification est demandée
+        /// </summary>
         private Boolean enCoursModif = false;
-
+        /// <summary>
+        /// Controleur de la fenêtre
+        /// </summary>
         private AddPersController controller;
         private FormPersList frmPersList;
         private Personnel personnel;
-
-        private BindingSource bdgServices = new BindingSource();
-
+        /// <summary>
+        /// Objet pour gérer la liste des services
+        /// </summary>
+        private readonly BindingSource bdgServices = new BindingSource();
+        /// <summary>
+        /// Objet pour gérer la liste des services
+        /// </summary>
         public FormAddPers(Personnel personnel, Object sender, FormPersList frm)
         {
             InitializeComponent();
             Init(personnel, sender, frm);
         }
 
-        
+        /// <summary>
+        /// Initialisations : création du controller
+        /// </summary>
+        /// <param name="personnel">personnel de la ligne selectionnée</param>
+        /// <param name="sender">bouton ayant déclenché l'ouverture de la frame (ajouter ou modifier)</param>
+        /// <param name="frm"></param>
         private void Init(Personnel personnel, object sender, FormPersList frm)
         {
             controller = new AddPersController();
@@ -39,7 +55,7 @@ namespace Mediatek_86.view
             this.frmPersList = frm;
             this.personnel = personnel;
             RemplirListServices();
-            if ((Button)sender == frm.btn_modifier)
+            if ((Button)sender == frm.Btn_modifier)
             {
                 textBox_nom.Text = personnel.Nom;
                 textBox_prenom.Text = personnel.Prenom;
@@ -59,7 +75,9 @@ namespace Mediatek_86.view
             }
             
         }
-
+        /// <summary>
+        /// Affiche les services
+        /// </summary>
         private void RemplirListServices()
         {
             List<Service> lesServices = controller.GetLesServices();
@@ -69,27 +87,31 @@ namespace Mediatek_86.view
 
 
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label_tel_Click(object sender, EventArgs e)
+        private void Label_tel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void btn_enregistrer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande d'enregistrement de l'ajout ou de la modification d'un développeur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_enregistrer_Click(object sender, EventArgs e)
         {
             if (!textBox_nom.Text.Equals("") && !textBox_prenom.Text.Equals("") && !textBox_tel.Text.Equals("") && !textBox_mail.Text.Equals("") && comboBox_service.SelectedIndex != -1)
             {
@@ -121,8 +143,12 @@ namespace Mediatek_86.view
                 MessageBox.Show("Tous les champs doivent etre remplis.");
             }
         }
-
-        private void btn_anuler_Click(object sender, EventArgs e)
+        /// <summary>
+        /// annuler la demande d'ajout ou de modification d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_anuler_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {

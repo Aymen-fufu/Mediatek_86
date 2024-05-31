@@ -70,7 +70,7 @@
             this.btn_supprimer.TabIndex = 3;
             this.btn_supprimer.Text = "supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = true;
-            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            this.btn_supprimer.Click += new System.EventHandler(this.Btn_supprimer_Click);
             // 
             // btn_modifier
             // 
@@ -81,7 +81,7 @@
             this.btn_modifier.TabIndex = 2;
             this.btn_modifier.Text = "modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            this.btn_modifier.Click += new System.EventHandler(this.Btn_modifier_Click);
             // 
             // btn_ajouter
             // 
@@ -92,7 +92,7 @@
             this.btn_ajouter.TabIndex = 1;
             this.btn_ajouter.Text = "ajouter";
             this.btn_ajouter.UseVisualStyleBackColor = true;
-            this.btn_ajouter.Click += new System.EventHandler(this.btn_ajouter_Click);
+            this.btn_ajouter.Click += new System.EventHandler(this.Btn_ajouter_Click);
             // 
             // dgv_Absences
             // 
@@ -170,7 +170,7 @@
             this.btn_enregistrer.TabIndex = 6;
             this.btn_enregistrer.Text = "enregistrer";
             this.btn_enregistrer.UseVisualStyleBackColor = true;
-            this.btn_enregistrer.Click += new System.EventHandler(this.btn_enregistrer_Click);
+            this.btn_enregistrer.Click += new System.EventHandler(this.Btn_enregistrer_Click);
             // 
             // btn_fermer
             // 
@@ -181,7 +181,7 @@
             this.btn_fermer.TabIndex = 2;
             this.btn_fermer.Text = "fermer";
             this.btn_fermer.UseVisualStyleBackColor = true;
-            this.btn_fermer.Click += new System.EventHandler(this.btn_fermer_Click);
+            this.btn_fermer.Click += new System.EventHandler(this.Btn_fermer_Click);
             // 
             // btn_annuler
             // 
@@ -192,7 +192,7 @@
             this.btn_annuler.TabIndex = 1;
             this.btn_annuler.Text = "annuler";
             this.btn_annuler.UseVisualStyleBackColor = true;
-            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
+            this.btn_annuler.Click += new System.EventHandler(this.Btn_annuler_Click);
             // 
             // mySqlDataAdapter1
             // 

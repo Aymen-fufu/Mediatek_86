@@ -7,15 +7,27 @@ using Mediatek_86.model;
 
 namespace Mediatek_86.dal
 {
+    /// <summary>
+    /// Classe permettant de gérer les demandes concernant les absences
+    /// </summary>
     public class AbsenceAccess
     {
+        /// <summary>
+        /// Instance unique de l'accès aux données
+        /// </summary>
         private readonly Access access = null;
-
+        /// <summary>
+        /// Constructeur pour créer l'accès aux données
+        /// </summary>
         public AbsenceAccess()
         {
             access = Access.GetInstance();
         }
-
+        /// <summary>
+        /// Récupère et retourne les absences concernant le personnel passé en paramètre
+        /// </summary>
+        /// <param name="personnel">personnel concerné</param>
+        /// <returns>Liste des absences</returns>
         public List<Absence> GetLesAbsences(Personnel personnel) 
         { 
             List<Absence> lesAbsences = new List<Absence>();
@@ -48,6 +60,10 @@ namespace Mediatek_86.dal
             }
             return lesAbsences;
         }
+        /// <summary>
+        /// Demande d'ajout d'une absence
+        /// </summary>
+        /// <param name="absence">Objet absence à ajouter</param>
         public void AddAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -71,6 +87,10 @@ namespace Mediatek_86.dal
 
             }
         }
+        /// <summary>
+        /// Demande de suppression d'une absence
+        /// </summary>
+        /// <param name="absence">Objet absence à supprimer</param>
         public void DelAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -90,6 +110,10 @@ namespace Mediatek_86.dal
                 }
             }
         }
+        /// <summary>
+        /// Demande de suppression de toutes les absences d'un personnel
+        /// </summary>
+        /// <param name="personnel">Personnel concerné</param>
         public void DelAllAbsence(Personnel personnel)
         {
             if (access.Manager != null)
@@ -108,6 +132,12 @@ namespace Mediatek_86.dal
                 }
             }
         }
+        /// <summary>
+        /// Demande de modification d'un absence
+        /// </summary>
+        /// <param name="absence">Objet absence à supprimer</param>
+        /// <param name="personnel">Personnel concerné</param>
+        /// <param name="dateDebut">datedebut originelle</param>
         public void UpdateAbsence(Absence absence, Personnel personnel, DateTime dateDebut)
         {
             if (access.Manager != null)

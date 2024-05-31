@@ -4,10 +4,19 @@ using System;
 
 namespace Mediatek_86.controller
 {
+    /// <summary>
+    /// Controleur de FormAuth
+    /// </summary>
     public class AuthController
     {
+        /// <summary>
+        /// Objet d'accès aux opérations possibles sur Responsable
+        /// </summary>
         private readonly ResponsableAcces responsableAcces;
 
+        /// <summary>
+        /// Récupère l'accès aux données
+        /// </summary>
         public AuthController() 
         { 
             responsableAcces = new ResponsableAcces();

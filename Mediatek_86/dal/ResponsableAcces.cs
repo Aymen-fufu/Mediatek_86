@@ -8,16 +8,26 @@ using Mediatek_86.model;
 namespace Mediatek_86.dal
 {
 
-
+    /// <summary>
+    /// Classe permettant de gérer les demandes pour les reponsables
+    /// </summary>
     public class ResponsableAcces
     {
+        
         private readonly Access access = null;
-
+        /// <summary>
+        /// Instance unique de l'accès aux données
+        /// </summary>
         public ResponsableAcces()
         {
             access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Controle si l'utilisateur à le droit de se connecter (responsable)
+        /// </summary>
+        /// <param name="responsable"></param>
+        /// <returns>Vrai si l'utilisateur est le responsable</returns>
         public Boolean ControlAuth(Responsable responsable) 
         { 
             if (access != null) 

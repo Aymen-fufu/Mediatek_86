@@ -13,47 +13,62 @@ using System.Windows.Forms;
 
 namespace Mediatek_86
 {
+    /// <summary>
+    /// Fenêtre d'authentification (seul le responsable peut accéder à l'application)
+    /// </summary>
     public partial class FormAuth : Form
     {
+        /// <summary>
+        /// Contrôleur de la fenêtre
+        /// </summary>
         private AuthController controller;
+        /// <summary>
+        /// Construction des composants graphiques et appel des autres initialisations
+        /// </summary>
         public FormAuth()
         {
             InitializeComponent();
             Init();
         }
-
+        /// <summary>
+        /// Initialisation : création du controleur
+        /// </summary>
         private void Init()
         { 
             controller = new AuthController();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void login_btn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Demande au controleur de controler l'authentification 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Login_btn_Click(object sender, EventArgs e)
         {
             String username = textBox_username.Text;
             String password = textBox_password.Text;
@@ -78,7 +93,7 @@ namespace Mediatek_86
 
         }
 
-        private void textBox_password_TextChanged(object sender, EventArgs e)
+        private void TextBox_password_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -76,7 +76,7 @@
             this.label_service.Size = new System.Drawing.Size(43, 15);
             this.label_service.TabIndex = 13;
             this.label_service.Text = "service";
-            this.label_service.Click += new System.EventHandler(this.label1_Click);
+            this.label_service.Click += new System.EventHandler(this.Label1_Click);
             // 
             // comboBox_service
             // 
@@ -95,7 +95,7 @@
             this.btn_enregistrer.TabIndex = 11;
             this.btn_enregistrer.Text = "enregistrer";
             this.btn_enregistrer.UseVisualStyleBackColor = true;
-            this.btn_enregistrer.Click += new System.EventHandler(this.btn_enregistrer_Click);
+            this.btn_enregistrer.Click += new System.EventHandler(this.Btn_enregistrer_Click);
             // 
             // btn_anuler
             // 
@@ -106,7 +106,7 @@
             this.btn_anuler.TabIndex = 10;
             this.btn_anuler.Text = "annuler";
             this.btn_anuler.UseVisualStyleBackColor = true;
-            this.btn_anuler.Click += new System.EventHandler(this.btn_anuler_Click);
+            this.btn_anuler.Click += new System.EventHandler(this.Btn_anuler_Click);
             // 
             // textBox_mail
             // 
@@ -128,7 +128,7 @@
             this.textBox_prenom.Name = "textBox_prenom";
             this.textBox_prenom.Size = new System.Drawing.Size(169, 20);
             this.textBox_prenom.TabIndex = 7;
-            this.textBox_prenom.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox_prenom.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // textBox_nom
             // 
@@ -147,7 +147,7 @@
             this.label_mail.Size = new System.Drawing.Size(29, 15);
             this.label_mail.TabIndex = 4;
             this.label_mail.Text = "mail";
-            this.label_mail.Click += new System.EventHandler(this.label4_Click);
+            this.label_mail.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label_prenom
             // 
@@ -170,7 +170,7 @@
             this.label_tel.Size = new System.Drawing.Size(20, 15);
             this.label_tel.TabIndex = 2;
             this.label_tel.Text = "tel";
-            this.label_tel.Click += new System.EventHandler(this.label_tel_Click);
+            this.label_tel.Click += new System.EventHandler(this.Label_tel_Click);
             // 
             // label_nom
             // 
